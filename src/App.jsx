@@ -8,6 +8,7 @@ import {
   EDUCATION,
   ACTIVITIES,
   CURRENTLY_LEARNING,
+  getAcademicYear,
 } from './data/profileSeed'
 
 const TABS = [
@@ -320,7 +321,9 @@ export default function App() {
                         Education Status
                       </h3>
                       <div className="text-xs text-[#4e453b] bg-[#faf7f2] p-3 rounded-xl border border-[#eee6da]">
-                        <span className="font-semibold block text-[#1a1714]">BSc. CSIT (3rd Semester)</span>
+                        <span className="font-semibold block text-[#1a1714]">
+                          {getAcademicYear() === 'Graduate' ? 'BSc. CSIT Graduate' : `BSc. CSIT (${getAcademicYear()})`}
+                        </span>
                         <span>Samriddhi College · Kathmandu</span>
                       </div>
                     </div>

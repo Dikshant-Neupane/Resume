@@ -468,12 +468,31 @@ export const ACTIVITIES = [
   },
 ]
 
+export function getAcademicYear() {
+  const now = new Date()
+  const fourthYearDate = new Date('2027-09-01')
+  const graduateDate = new Date('2028-09-01')
+
+  if (now >= graduateDate) {
+    return 'Graduate'
+  }
+  if (now >= fourthYearDate) {
+    return '4th Year'
+  }
+  return '3rd Year'
+}
+
+export function getAcademicStatus() {
+  const year = getAcademicYear()
+  return year === 'Graduate' ? 'BSc. CSIT Graduate' : `Currently in ${year}`
+}
+
 export const EDUCATION = [
   {
     degree: 'BSc. Computer Science & Information Technology (CSIT)',
     institution: 'Samriddhi College (Tribhuvan University Affiliated)',
     location: 'Kathmandu, Nepal',
-    status: 'Currently in 3rd Semester',
+    status: getAcademicStatus(),
     coursework: [
       'Data Structures & Algorithms',
       'Object-Oriented Programming (C++)',

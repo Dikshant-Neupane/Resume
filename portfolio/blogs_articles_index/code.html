@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MANDALA - The Monograph Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-container": "#9aabc5",
+                "on-background": "#1e1b18",
+                "error-container": "#ffdad6",
+                "error": "#ba1a1a",
+                "secondary-container": "#f9dbb7",
+                "surface-tint": "#735a36",
+                "primary-fixed": "#ffddb1",
+                "on-secondary-fixed": "#281903",
+                "on-error": "#ffffff",
+                "surface-container-highest": "#e8e1dc",
+                "surface": "#fff8f4",
+                "on-primary-fixed-variant": "#594321",
+                "inverse-surface": "#33302c",
+                "on-secondary-container": "#755f42",
+                "on-tertiary-container": "#2f3f55",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f7efea",
+                "surface-variant": "#e8e1dc",
+                "secondary-fixed-dim": "#dfc29f",
+                "inverse-primary": "#e2c195",
+                "background": "#fff8f4",
+                "tertiary": "#4f5f77",
+                "on-surface": "#1e1b18",
+                "on-surface-variant": "#4e453b",
+                "tertiary-fixed-dim": "#b7c8e3",
+                "on-error-container": "#93000a",
+                "surface-container-low": "#faf2ed",
+                "surface-container-high": "#eee7e1",
+                "primary-container": "#c4a57b",
+                "tertiary-fixed": "#d3e4ff",
+                "outline-variant": "#d1c5b7",
+                "on-secondary-fixed-variant": "#574329",
+                "on-secondary": "#ffffff",
+                "surface-dim": "#e0d9d3",
+                "secondary": "#715b3e",
+                "on-tertiary-fixed": "#0a1c30",
+                "on-tertiary": "#ffffff",
+                "outline": "#7f756a",
+                "on-primary": "#ffffff",
+                "on-primary-container": "#503b1a",
+                "primary-fixed-dim": "#e2c195",
+                "surface-container": "#f4ece7",
+                "secondary-fixed": "#fcdeba",
+                "surface-bright": "#fff8f4",
+                "primary": "#735a36",
+                "on-tertiary-fixed-variant": "#37485e",
+                "on-primary-fixed": "#291800"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "gutter": "2rem",
+                "container-max": "1280px",
+                "unit": "8px",
+                "page-margin": "4rem"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Playfair Display"
+                ],
+                "label-caps": [
+                        "Inter"
+                ],
+                "accent-italic": [
+                        "Crimson Text"
+                ],
+                "headline-lg": [
+                        "Playfair Display"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "display-xl": [
+                        "Playfair Display"
+                ],
+                "body-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "500"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "accent-italic": [
+                        "20px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-xl": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+    }
+  }
+</script>
+<style>
+    body {
+        background-color: #e8e1dc; /* surface-variant for outside the book */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    }
+    
+    .book-spread {
+        background-color: #fff8f4; /* background/surface */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        box-shadow: 0 20px 40px rgba(44,44,44,0.1), 0 1px 10px rgba(44,44,44,0.05);
+    }
+    
+    .book-spine {
+        background: linear-gradient(90deg, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.02) 20%, 
+            rgba(0,0,0,0.06) 45%, 
+            rgba(0,0,0,0.08) 50%, 
+            rgba(0,0,0,0.06) 55%, 
+            rgba(0,0,0,0.02) 80%, 
+            rgba(0,0,0,0) 100%);
+    }
+
+    .mandala-watermark {
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M200 0 A200 200 0 1 1 200 400 A200 200 0 1 1 200 0 Z M200 40 A160 160 0 1 0 200 360 A160 160 0 1 0 200 40 Z M200 80 A120 120 0 1 1 200 320 A120 120 0 1 1 200 80 Z M200 120 A80 80 0 1 0 200 280 A80 80 0 1 0 200 120 Z' fill='%231e1b18' stroke='none'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .article-item {
+        position: relative;
+    }
+    
+    .article-item::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #c4a57b; /* primary-container */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .article-item:hover::before {
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-16 h-20 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-sm shadow-[0_10px_30px_rgba(44,44,44,0.05)] border-b border-stone-200 dark:border-stone-800">
+<div class="font-serif text-2xl font-light tracking-widest text-stone-900 dark:text-stone-50">MANDALA</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 h-full flex items-center px-2 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 active:shadow-inner active:scale-95" href="#">Work</a>
+<a class="font-serif tracking-tight text-amber-600 dark:text-amber-400 border-b-2 border-amber-600 pb-1 h-full flex items-center px-2 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 active:shadow-inner active:scale-95" href="#">Archive</a>
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 h-full flex items-center px-2 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 active:shadow-inner active:scale-95" href="#">About</a>
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 h-full flex items-center px-2 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 active:shadow-inner active:scale-95" href="#">Contact</a>
+</nav>
+<div class="flex items-center text-amber-600 dark:text-amber-400 cursor-pointer hover:bg-stone-100 dark:hover:bg-stone-900 p-2 rounded transition-all duration-300 active:shadow-inner active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center p-4 md:p-8 lg:p-12">
+<!-- Book Spread Container -->
+<div class="book-spread w-full max-w-[1280px] aspect-auto md:aspect-[16/10] flex flex-col md:flex-row relative rounded-sm overflow-hidden">
+<!-- Left Page: Title & Intro -->
+<div class="w-full md:w-1/2 p-page-margin relative flex flex-col justify-center">
+<div class="mandala-watermark absolute inset-0 z-0 scale-150 -translate-x-1/4"></div>
+<div class="relative z-10 max-w-md mx-auto text-center md:text-left">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-4 uppercase tracking-widest text-primary">Volume I</span>
+<h1 class="font-display-xl text-display-xl text-on-background mb-8 leading-tight">
+                        The<br/>
+                        Monograph<br/>
+                        Archive
+                    </h1>
+<div class="h-[1px] w-16 bg-outline mb-8 mx-auto md:mx-0"></div>
+<p class="font-accent-italic text-accent-italic text-on-surface-variant mb-6">
+                        Reflections on Design, Technology, and Craft.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface">
+                        A collection of thoughts, essays, and observations exploring the intersection of tactile traditions and digital futures. These entries serve as an ongoing record of our design philosophy.
+                    </p>
+</div>
+</div>
+<!-- Spine Fold -->
+<div class="book-spine absolute top-0 bottom-0 left-1/2 -ml-4 w-8 z-20 hidden md:block"></div>
+<!-- Horizontal border for mobile -->
+<div class="h-px w-full bg-outline-variant md:hidden mx-auto max-w-[80%] my-8"></div>
+<!-- Right Page: Editorial Index -->
+<div class="w-full md:w-1/2 p-page-margin relative bg-surface-container-lowest md:bg-transparent">
+<div class="max-w-md mx-auto flex flex-col h-full justify-between">
+<div class="space-y-12">
+<!-- Article 1 -->
+<article class="article-item group cursor-pointer">
+<time class="font-label-caps text-label-caps text-on-surface-variant block mb-2 uppercase text-primary">October 12, 2024</time>
+<h2 class="font-headline-md text-headline-md text-on-background mb-2 group-hover:text-primary transition-colors">The Tactile Interface</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 line-clamp-2">Exploring how skeuomorphic design principles can add emotional weight to digital experiences without sacrificing modern usability.</p>
+<span class="font-accent-italic text-[16px] text-primary group-hover:underline underline-offset-4 decoration-primary-container">Read Entry →</span>
+</article>
+<!-- Article 2 -->
+<article class="article-item group cursor-pointer">
+<time class="font-label-caps text-label-caps text-on-surface-variant block mb-2 uppercase text-primary">September 28, 2024</time>
+<h2 class="font-headline-md text-headline-md text-on-background mb-2 group-hover:text-primary transition-colors">Typography as Architecture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 line-clamp-2">Constructing robust layouts using fluid typography scales and grid systems borrowed from traditional print design.</p>
+<span class="font-accent-italic text-[16px] text-primary group-hover:underline underline-offset-4 decoration-primary-container">Read Entry →</span>
+</article>
+<!-- Article 3 -->
+<article class="article-item group cursor-pointer">
+<time class="font-label-caps text-label-caps text-on-surface-variant block mb-2 uppercase text-primary">August 15, 2024</time>
+<h2 class="font-headline-md text-headline-md text-on-background mb-2 group-hover:text-primary transition-colors">The Slow Web Movement</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 line-clamp-2">Designing for intentional consumption. Why we need interfaces that encourage reading over scrolling.</p>
+<span class="font-accent-italic text-[16px] text-primary group-hover:underline underline-offset-4 decoration-primary-container">Read Entry →</span>
+</article>
+</div>
+<!-- Pagination / Footer of Page -->
+<div class="mt-16 flex justify-between items-center border-t border-outline-variant pt-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Page 01</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline cursor-not-allowed">chevron_left</span>
+<span class="material-symbols-outlined text-on-background cursor-pointer hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-16 flex flex-col md:flex-row justify-between items-center gap-6 bg-stone-100 dark:bg-stone-900 border-t-2 border-double border-stone-300 dark:border-stone-700 max-w-[1280px] mx-auto mt-auto">
+<div class="font-serif font-bold uppercase text-stone-900 dark:text-stone-100">MANDALA</div>
+<div class="font-serif italic text-sm tracking-wide text-amber-700 dark:text-amber-500">
+            © 2024 ARCHIVAL RECORDS. COLLECTED WORKS VOL. I.
+        </div>
+<nav class="flex gap-6">
+<a class="font-serif italic text-sm tracking-wide text-stone-500 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer" href="#">Archival Policy</a>
+<a class="font-serif italic text-sm tracking-wide text-stone-500 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer" href="#">System Status</a>
+<a class="font-serif italic text-sm tracking-wide text-stone-500 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer" href="#">Legal Preface</a>
+</nav>
+</footer>
+</body></html>

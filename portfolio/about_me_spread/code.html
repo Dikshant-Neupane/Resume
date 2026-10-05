@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mandala Book Portfolio - About Me</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#503b1a",
+                        "outline-variant": "#d1c5b7",
+                        "on-tertiary-fixed": "#0a1c30",
+                        "inverse-surface": "#33302c",
+                        "inverse-primary": "#e2c195",
+                        "tertiary-container": "#9aabc5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#b7c8e3",
+                        "on-tertiary-fixed-variant": "#37485e",
+                        "surface-bright": "#fff8f4",
+                        "outline": "#7f756a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f4ece7",
+                        "surface-tint": "#735a36",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#c4a57b",
+                        "on-secondary-container": "#755f42",
+                        "tertiary": "#4f5f77",
+                        "on-primary-fixed-variant": "#594321",
+                        "surface": "#fff8f4",
+                        "surface-container-high": "#eee7e1",
+                        "background": "#fff8f4",
+                        "surface-dim": "#e0d9d3",
+                        "on-secondary-fixed-variant": "#574329",
+                        "secondary": "#715b3e",
+                        "inverse-on-surface": "#f7efea",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#f9dbb7",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#2f3f55",
+                        "on-surface-variant": "#4e453b",
+                        "primary": "#735a36",
+                        "on-background": "#1e1b18",
+                        "on-surface": "#1e1b18",
+                        "surface-container-low": "#faf2ed",
+                        "secondary-fixed-dim": "#dfc29f",
+                        "tertiary-fixed": "#d3e4ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e8e1dc",
+                        "primary-fixed": "#ffddb1",
+                        "on-secondary-fixed": "#281903",
+                        "secondary-fixed": "#fcdeba",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-highest": "#e8e1dc",
+                        "primary-fixed-dim": "#e2c195"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "2rem",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "page-margin": "4rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "accent-italic": ["Crimson Text"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "accent-italic": ["20px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .book-spine-gradient {
+            background: linear-gradient(90deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.02) 100%);
+        }
+        .mandala-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M200 50 L250 150 L350 200 L250 250 L200 350 L150 250 L50 200 L150 150 Z' fill='none' stroke='%23C4A57B' stroke-width='1' opacity='0.2'/%3E%3Ccircle cx='200' cy='200' r='100' fill='none' stroke='%23C4A57B' stroke-width='1' opacity='0.2'/%3E%3Ccircle cx='200' cy='200' r='150' fill='none' stroke='%23C4A57B' stroke-width='1' opacity='0.2' stroke-dasharray='5,5'/%3E%3C/svg%3E");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 150%;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-surface paper-texture min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full border-b border-stone-200/50 dark:border-stone-800/50 z-50 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-sm border-b border-amber-900/10 shadow-sm">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1280px] mx-auto">
+<div class="font-serif italic font-bold text-xl text-amber-700 dark:text-amber-500">
+                Monograph
+            </div>
+<nav class="hidden md:flex gap-8">
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200" href="#">Index</a>
+<a class="font-serif tracking-tight text-amber-700 dark:text-amber-400 border-b-2 border-amber-600 pb-1 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200" href="#">Essays</a>
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200" href="#">Gallery</a>
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200" href="#">Archive</a>
+</nav>
+<div class="text-amber-600 dark:text-amber-500 flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Bookmarks) -->
+<aside class="fixed top-0 right-12 w-16 h-48 rounded-b-lg shadow-xl z-40 bg-[#C4A57B] dark:bg-amber-800 shadow-[0_10px_30px_rgba(44,44,44,0.15)] hidden lg:flex flex-col items-center pt-8 gap-6">
+<div class="hidden text-stone-900 dark:text-stone-50 font-serif text-sm uppercase tracking-widest">Navigation</div>
+<div class="hidden text-stone-900 dark:text-stone-50 font-serif text-sm uppercase tracking-widest">The Archive</div>
+<a class="text-stone-800/70 hover:translate-y-2 transition-transform duration-300 Active: inner-shadow flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="sr-only">Chapters</span>
+</a>
+<a class="text-stone-950 font-bold scale-110 hover:translate-y-2 transition-transform duration-300 Active: inner-shadow flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="sr-only">Bookmarks</span>
+</a>
+<a class="text-stone-800/70 hover:translate-y-2 transition-transform duration-300 Active: inner-shadow flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="sr-only">Notes</span>
+</a>
+</aside>
+<!-- Main Content: Two-Page Spread -->
+<main class="flex-grow w-full max-w-container-max mx-auto mt-24 mb-24 px-8 flex justify-center items-center">
+<!-- The Book Spread Container -->
+<div class="w-full aspect-[16/10] bg-surface shadow-[0_20px_60px_rgba(44,44,44,0.1),_0_4px_12px_rgba(44,44,44,0.05)] rounded-sm flex overflow-hidden relative">
+<!-- Spine Fold -->
+<div class="absolute left-1/2 top-0 bottom-0 w-8 -ml-4 book-spine-gradient z-10 pointer-events-none"></div>
+<!-- Left Page: Visual Anchor -->
+<div class="w-1/2 h-full p-page-margin relative flex items-center justify-center border-r border-outline-variant/30 mandala-bg">
+<div class="relative z-10 w-3/4 aspect-[3/4] bg-surface-container-lowest shadow-[0_10px_30px_rgba(44,44,44,0.05),_0_1px_4px_rgba(44,44,44,0.03)] p-4 transform -rotate-1">
+<img alt="Young man profile" class="w-full h-full object-cover filter grayscale contrast-125 brightness-90" data-alt="high quality monochrome portrait of a young man, soft studio lighting, contemplative expression, dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC26uxFgRsNmHhVoXZI53FkEHLoIp_dKRvpMv8IF6GLPphSRd3mZg6_PhB8DC2m7kNpV8QPmbRYNC5V9g3G85Stlys2GtM4dkRYWoBqS1m8x_99lMUfsdo5KnYThShhhB2tfxBgjWRyyZDiNbJtz8wrkJ15NtCaSTyyyAA5Wme0EaN4_waOhmzyzcHofBDHZmc_5xY71VnUZz5-Z8JtiFpR2gkFAikLXtVCkVnvMpQNy22xJ_ncO_dQM1KQYqPP88V5rYX1TB5E_eKx"/>
+</div>
+</div>
+<!-- Right Page: Content Canvas -->
+<div class="w-1/2 h-full p-page-margin bg-surface-container-lowest overflow-y-auto">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-gutter border-b border-primary-container pb-4">About Me</h1>
+<div class="columns-2 gap-gutter">
+<section class="mb-8 break-inside-avoid">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Short Bio</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                            A meticulous craftsman of digital experiences, bridging the gap between historical design principles and modern interactive media. I believe in the quiet power of intentional white space and the tactile sensation of well-set typography.
+                        </p>
+</section>
+<section class="mb-8 break-inside-avoid">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Education</h2>
+<div class="pl-4 border-l-2 border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">2018 - 2022</h3>
+<p class="font-body-md text-body-md text-on-surface font-semibold">BFA Interaction Design</p>
+<p class="font-accent-italic text-accent-italic text-on-surface-variant text-sm">Rhode Island School of Design</p>
+</div>
+<div class="pl-4 border-l-2 border-outline-variant mt-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">2022 - 2024</h3>
+<p class="font-body-md text-body-md text-on-surface font-semibold">MDes Graphic Design</p>
+<p class="font-accent-italic text-accent-italic text-on-surface-variant text-sm">Yale School of Art</p>
+</div>
+</section>
+<section class="mb-8 break-inside-avoid">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Career Goals</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            To architect design systems that prioritize focus over distraction. My ambition is to lead a studio dedicated to slow-consumption digital products—interfaces that respect the user's time and aesthetic sensibilities.
+                        </p>
+</section>
+<section class="mb-8 break-inside-avoid">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Motivation</h2>
+<blockquote class="font-accent-italic text-accent-italic text-secondary border-l-4 border-primary-container pl-4 italic">
+                            "The details are not the details. They make the design." — Charles Eames
+                        </blockquote>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">
+                            I am driven by the legacy of print media. The permanence of ink on paper challenges me to bring that same level of rigor and lasting quality to ephemeral digital screens.
+                        </p>
+</section>
+</div>
+<!-- Decorative element -->
+<div class="mt-12 flex justify-center opacity-30">
+<span class="material-symbols-outlined text-primary" data-icon="spa">spa</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full border-t border-stone-200 dark:border-stone-800 z-50 bg-stone-50 dark:bg-stone-950 transition-opacity duration-300">
+<div class="flex justify-between items-center py-4 px-16 max-w-[1280px] mx-auto w-full font-serif italic text-xs text-stone-500 dark:text-stone-400">
+<div>
+                © 2024 Digital Monograph. Printed in Bits.
+            </div>
+<nav class="flex gap-6">
+<a class="text-stone-400 dark:text-stone-600 hover:text-amber-600 dark:hover:text-amber-400" href="#">Sound On</a>
+<a class="text-stone-400 dark:text-stone-600 hover:text-amber-600 dark:hover:text-amber-400" href="#">Haptic</a>
+<a class="text-stone-400 dark:text-stone-600 hover:text-amber-600 dark:hover:text-amber-400" href="#">Motion High</a>
+</nav>
+</div>
+</footer>
+</body></html>

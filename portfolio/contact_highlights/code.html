@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Me - Mandala Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#7f756a",
+                        "tertiary-container": "#9aabc5",
+                        "primary-fixed": "#ffddb1",
+                        "on-secondary-container": "#755f42",
+                        "on-secondary-fixed-variant": "#574329",
+                        "on-background": "#1e1b18",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#291800",
+                        "primary-fixed-dim": "#e2c195",
+                        "tertiary-fixed-dim": "#b7c8e3",
+                        "surface-tint": "#735a36",
+                        "on-primary-container": "#503b1a",
+                        "inverse-on-surface": "#f7efea",
+                        "primary": "#735a36",
+                        "secondary-container": "#f9dbb7",
+                        "on-tertiary-fixed-variant": "#37485e",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#33302c",
+                        "tertiary": "#4f5f77",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#faf2ed",
+                        "secondary-fixed-dim": "#dfc29f",
+                        "surface-variant": "#e8e1dc",
+                        "surface-container-high": "#eee7e1",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#281903",
+                        "secondary": "#715b3e",
+                        "on-surface": "#1e1b18",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#d1c5b7",
+                        "on-surface-variant": "#4e453b",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#594321",
+                        "tertiary-fixed": "#d3e4ff",
+                        "inverse-primary": "#e2c195",
+                        "primary-container": "#c4a57b",
+                        "secondary-fixed": "#fcdeba",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#0a1c30",
+                        "surface-dim": "#e0d9d3",
+                        "surface": "#fff8f4",
+                        "on-tertiary-container": "#2f3f55",
+                        "surface-bright": "#fff8f4",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e8e1dc",
+                        "surface-container": "#f4ece7",
+                        "background": "#fff8f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "page-margin": "4rem",
+                        "container-max": "1280px",
+                        "gutter": "2rem",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "accent-italic": ["Crimson Text"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "accent-italic": ["20px", { "lineHeight": "1.4", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#e8e1dc] text-on-background min-h-screen flex flex-col relative overflow-x-hidden font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="bg-[#f4f1ea] dark:bg-[#121212] docked full-width top-0 border-b border-[#C4A57B]/20 border-b border-stone-300 dark:border-stone-800 shadow-[0_10px_30px_rgba(44,44,44,0.05)] w-full relative z-50">
+<div class="flex justify-between items-center w-full px-16 max-w-[1280px] mx-auto h-20">
+<div class="text-2xl font-serif italic text-[#C4A57B] dark:text-[#D4AF37]">
+                Mandala Portfolio
+            </div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors duration-300 active:shadow-inner active:scale-95 transition-all font-serif tracking-tight px-3 py-2" href="#">Work</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors duration-300 active:shadow-inner active:scale-95 transition-all font-serif tracking-tight px-3 py-2" href="#">Archive</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors duration-300 active:shadow-inner active:scale-95 transition-all font-serif tracking-tight px-3 py-2" href="#">About</a>
+<a class="text-[#C4A57B] border-b-2 border-[#C4A57B] pb-1 font-bold hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors duration-300 active:shadow-inner active:scale-95 transition-all font-serif tracking-tight px-3 py-2" href="#">Contact</a>
+</nav>
+<button class="md:hidden text-[#C4A57B] dark:text-[#D4AF37]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content - Book Spread Metaphor -->
+<main class="flex-grow flex flex-col items-center justify-start pt-16 pb-24 px-4 w-full relative z-10">
+<!-- The Book Container -->
+<div class="relative w-full max-w-[1280px] bg-background shadow-[0_20px_40px_rgba(44,44,44,0.1),_0_1px_4px_rgba(44,44,44,0.05)] flex flex-col md:flex-row min-h-[800px] rounded-DEFAULT overflow-hidden">
+<div class="noise-overlay"></div>
+<!-- Book Spine / Gutter Gradient -->
+<div class="absolute left-1/2 top-0 bottom-0 w-16 -ml-8 bg-gradient-to-r from-transparent via-black/5 to-transparent pointer-events-none hidden md:block z-20"></div>
+<!-- Left Page: Contact Form -->
+<div class="w-full md:w-1/2 p-page-margin relative z-10 flex flex-col border-b md:border-b-0 md:border-r border-outline-variant/30">
+<div class="mb-12">
+<span class="font-accent-italic text-accent-italic text-primary mb-2 block">Inquiries &amp; Correspondence</span>
+<h1 class="font-display-xl text-display-xl text-on-background">Contact Me</h1>
+</div>
+<form class="space-y-8 flex-grow">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-2" for="name">Name *</label>
+<input class="w-full bg-transparent border-0 border-b border-primary/40 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-background placeholder-on-surface-variant/50 transition-colors duration-300" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-2" for="email">Email *</label>
+<input class="w-full bg-transparent border-0 border-b border-primary/40 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-background placeholder-on-surface-variant/50 transition-colors duration-300" id="email" name="email" placeholder="your.email@example.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-2" for="phone">Phone Number *</label>
+<input class="w-full bg-transparent border-0 border-b border-primary/40 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-background placeholder-on-surface-variant/50 transition-colors duration-300" id="phone" name="phone" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-2" for="purpose">Purpose of Contact</label>
+<select class="w-full bg-transparent border-0 border-b border-primary/40 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-background appearance-none rounded-none transition-colors duration-300" id="purpose" name="purpose">
+<option disabled="" selected="" value="">Select an option</option>
+<option value="project">New Project Inquiry</option>
+<option value="collaboration">Collaboration</option>
+<option value="speaking">Speaking Engagement</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-2" for="message">Inquiry / Project Description</label>
+<textarea class="w-full bg-transparent border-0 border-b border-primary/40 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-background placeholder-on-surface-variant/50 resize-none transition-colors duration-300" id="message" name="message" placeholder="Please provide details..." rows="4"></textarea>
+</div>
+<div class="pt-6">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps uppercase px-8 py-4 rounded-DEFAULT shadow-[0_4px_10px_rgba(115,90,54,0.2)] hover:shadow-[0_6px_15px_rgba(115,90,54,0.3)] active:shadow-inner active:translate-y-px transition-all duration-300 tracking-widest border border-primary-container/20" type="submit">
+                            Send Dispatch
+                        </button>
+</div>
+</form>
+</div>
+<!-- Right Page: Social & Direct Links -->
+<div class="w-full md:w-1/2 p-page-margin relative z-10 flex flex-col justify-center bg-surface-container-lowest/50">
+<div class="max-w-md mx-auto w-full">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-8 text-center md:text-left">Digital Presence</h2>
+<div class="space-y-6">
+<!-- Social Link Item -->
+<a class="group flex items-center p-4 rounded-lg hover:bg-surface-container transition-colors duration-300 border border-transparent hover:border-outline-variant/30" href="#">
+<span class="material-symbols-outlined text-primary mr-6 group-hover:scale-110 transition-transform" data-icon="link">link</span>
+<div>
+<h3 class="font-headline-md text-[24px] text-on-background group-hover:text-primary transition-colors">LinkedIn</h3>
+<p class="font-body-md text-on-surface-variant mt-1">Professional network &amp; history</p>
+</div>
+</a>
+<!-- Social Link Item -->
+<a class="group flex items-center p-4 rounded-lg hover:bg-surface-container transition-colors duration-300 border border-transparent hover:border-outline-variant/30" href="#">
+<span class="material-symbols-outlined text-primary mr-6 group-hover:scale-110 transition-transform" data-icon="alternate_email">alternate_email</span>
+<div>
+<h3 class="font-headline-md text-[24px] text-on-background group-hover:text-primary transition-colors">Twitter / X</h3>
+<p class="font-body-md text-on-surface-variant mt-1">Thoughts and updates</p>
+</div>
+</a>
+<!-- Social Link Item -->
+<a class="group flex items-center p-4 rounded-lg hover:bg-surface-container transition-colors duration-300 border border-transparent hover:border-outline-variant/30" href="#">
+<span class="material-symbols-outlined text-primary mr-6 group-hover:scale-110 transition-transform" data-icon="photo_camera">photo_camera</span>
+<div>
+<h3 class="font-headline-md text-[24px] text-on-background group-hover:text-primary transition-colors">Instagram</h3>
+<p class="font-body-md text-on-surface-variant mt-1">Visual journal</p>
+</div>
+</a>
+<div class="h-px bg-outline-variant/30 w-full my-8"></div>
+<h3 class="font-accent-italic text-accent-italic text-on-surface-variant mb-4 text-center md:text-left">Direct Lines</h3>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 flex items-center justify-center gap-2 border border-outline-variant text-on-surface py-3 px-4 rounded-DEFAULT hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="send">send</span>
+<span class="font-label-caps text-label-caps uppercase">Telegram</span>
+</a>
+<a class="flex-1 flex items-center justify-center gap-2 border border-outline-variant text-on-surface py-3 px-4 rounded-DEFAULT hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="chat">chat</span>
+<span class="font-label-caps text-label-caps uppercase">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: GitHub Highlights -->
+<div class="w-full max-w-[1280px] mt-24">
+<div class="flex items-center gap-4 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="code">code</span>
+<h2 class="font-headline-md text-headline-md text-on-background">Open Source Artifacts</h2>
+<div class="h-px bg-outline-variant/50 flex-grow ml-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Repo Card 1 -->
+<div class="bg-surface rounded-lg p-6 shadow-[0_4px_20px_rgba(44,44,44,0.03)] border border-outline-variant/20 hover:shadow-[0_8px_30px_rgba(44,44,44,0.06)] hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-[20px] text-on-background group-hover:text-primary transition-colors">skeuomorphic-ui</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[16px] text-[#f1e05a]" data-icon="star">star</span>
+<span>1.2k</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">A modern library for creating tactile, paper-like user interfaces using web technologies. Focuses on ambient shadows and depth.</p>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[10px] rounded uppercase tracking-wider border border-outline-variant/30">TypeScript</span>
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[10px] rounded uppercase tracking-wider border border-outline-variant/30">CSS</span>
+</div>
+</div>
+<!-- Repo Card 2 -->
+<div class="bg-surface rounded-lg p-6 shadow-[0_4px_20px_rgba(44,44,44,0.03)] border border-outline-variant/20 hover:shadow-[0_8px_30px_rgba(44,44,44,0.06)] hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-[20px] text-on-background group-hover:text-primary transition-colors">monograph-cli</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[16px] text-[#f1e05a]" data-icon="star">star</span>
+<span>856</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Command line tool for generating static portfolio sites with a focus on typography and grid-based layouts.</p>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[10px] rounded uppercase tracking-wider border border-outline-variant/30">Go</span>
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[10px] rounded uppercase tracking-wider border border-outline-variant/30">Markdown</span>
+</div>
+</div>
+<!-- Repo Card 3 -->
+<div class="bg-surface rounded-lg p-6 shadow-[0_4px_20px_rgba(44,44,44,0.03)] border border-outline-variant/20 hover:shadow-[0_8px_30px_rgba(44,44,44,0.06)] hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-[20px] text-on-background group-hover:text-primary transition-colors">ink-algorithms</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[16px] text-[#f1e05a]" data-icon="star">star</span>
+<span>412</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Collection of generative art algorithms simulating various ink dispersion and paper bleeding techniques.</p>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[10px] rounded uppercase tracking-wider border border-outline-variant/30">Python</span>
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[10px] rounded uppercase tracking-wider border border-outline-variant/30">GLSL</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f4f1ea] dark:bg-[#121212] full-width border-t border-[#C4A57B]/20 border-t border-stone-300 dark:border-stone-800 mt-auto">
+<div class="w-full max-w-[1280px] mx-auto py-12 px-16 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-serif text-xs uppercase tracking-widest text-[#C4A57B] dark:text-[#D4AF37]">
+                © 2024 Mandala Monograph. Crafted in Ink and Code.
+            </div>
+<nav class="flex space-x-6">
+<a class="font-serif text-xs uppercase tracking-widest text-stone-400 dark:text-stone-500 hover:text-[#C4A57B] transition-colors opacity-80 hover:opacity-100" href="#">Colophon</a>
+<a class="font-serif text-xs uppercase tracking-widest text-stone-400 dark:text-stone-500 hover:text-[#C4A57B] transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="font-serif text-xs uppercase tracking-widest text-stone-400 dark:text-stone-500 hover:text-[#C4A57B] transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+</nav>
+</div>
+</footer>
+</body></html>

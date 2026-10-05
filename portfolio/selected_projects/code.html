@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monograph - Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        body {
+            background-color: #f5f2eb; /* Simulate outer background behind the book */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background-image: radial-gradient(circle at center, #f0ebd8 0%, #e3dcc5 100%);
+        }
+
+        /* The Book Metaphor Container */
+        .book-spread {
+            background-color: var(--surface);
+            box-shadow: 
+                0 25px 50px -12px rgba(44, 44, 44, 0.25),
+                0 0 0 1px rgba(127, 117, 106, 0.1);
+            position: relative;
+            /* Subtley curved corners to mimic book cover edges */
+            border-radius: 4px;
+            /* subtle noise texture */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            overflow: hidden;
+            display: flex;
+            width: 100%;
+            max-width: 1440px;
+            /* 16:10 aspect ratio constraint approximation */
+            aspect-ratio: 16/10;
+        }
+
+        /* The Spine / Center Gutter */
+        .book-spine {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            transform: translateX(-50%);
+            /* Complex gradient to simulate a physical book binding fold */
+            background: linear-gradient(
+                90deg, 
+                rgba(0,0,0,0) 0%, 
+                rgba(0,0,0,0.02) 20%, 
+                rgba(0,0,0,0.06) 45%, 
+                rgba(0,0,0,0.12) 50%, 
+                rgba(0,0,0,0.06) 55%, 
+                rgba(0,0,0,0.02) 80%, 
+                rgba(0,0,0,0) 100%
+            );
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: inset 1px 0 2px rgba(255,255,255,0.5), inset -1px 0 2px rgba(255,255,255,0.5);
+        }
+
+        .page {
+            flex: 1;
+            padding: 4rem 4rem 4rem 4rem; /* Simulate page margins */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Adjust padding near spine */
+        .page-left {
+            padding-right: 5rem;
+        }
+        
+        .page-right {
+            padding-left: 5rem;
+        }
+
+        /* Card Ambient Depth */
+        .ambient-card {
+            background-color: var(--surface-container-lowest);
+            box-shadow: 0 10px 30px rgba(44, 44, 44, 0.04), 0 1px 4px rgba(44, 44, 44, 0.02);
+            border: 1px solid rgba(127, 117, 106, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ambient-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .ambient-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(44, 44, 44, 0.08), 0 3px 8px rgba(44, 44, 44, 0.04);
+            border-color: rgba(115, 90, 54, 0.3); /* Primary with opacity */
+        }
+
+        .ambient-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Foil Button */
+        .foil-btn {
+            background-color: var(--primary-container);
+            color: var(--on-primary-container);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .foil-btn:hover {
+            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.08), 0 3px 6px -2px rgba(0, 0, 0, 0.04);
+            transform: translateY(-1px);
+        }
+
+        .foil-btn:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            transform: translateY(1px);
+        }
+
+        /* Minimal Chip */
+        .archival-chip {
+            border: 1px solid var(--outline-variant);
+            background-color: var(--surface-container);
+        }
+
+        /* Top Nav Styling override to fit inside spread */
+        .nav-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#503b1a",
+                        "outline-variant": "#d1c5b7",
+                        "on-tertiary-fixed": "#0a1c30",
+                        "inverse-surface": "#33302c",
+                        "inverse-primary": "#e2c195",
+                        "tertiary-container": "#9aabc5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#b7c8e3",
+                        "on-tertiary-fixed-variant": "#37485e",
+                        "surface-bright": "#fff8f4",
+                        "outline": "#7f756a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f4ece7",
+                        "surface-tint": "#735a36",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#c4a57b",
+                        "on-secondary-container": "#755f42",
+                        "tertiary": "#4f5f77",
+                        "on-primary-fixed-variant": "#594321",
+                        "surface": "#fff8f4",
+                        "surface-container-high": "#eee7e1",
+                        "background": "#fff8f4",
+                        "surface-dim": "#e0d9d3",
+                        "on-secondary-fixed-variant": "#574329",
+                        "secondary": "#715b3e",
+                        "inverse-on-surface": "#f7efea",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#f9dbb7",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#2f3f55",
+                        "on-surface-variant": "#4e453b",
+                        "primary": "#735a36",
+                        "on-background": "#1e1b18",
+                        "on-surface": "#1e1b18",
+                        "surface-container-low": "#faf2ed",
+                        "secondary-fixed-dim": "#dfc29f",
+                        "tertiary-fixed": "#d3e4ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e8e1dc",
+                        "primary-fixed": "#ffddb1",
+                        "on-secondary-fixed": "#281903",
+                        "secondary-fixed": "#fcdeba",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-highest": "#e8e1dc",
+                        "primary-fixed-dim": "#e2c195"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "2rem",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "page-margin": "4rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "accent-italic": ["Crimson Text"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "accent-italic": ["20px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#f5f2eb]">
+<div class="book-spread">
+<!-- TopAppBar Navigation overlay -->
+<div class="nav-wrapper">
+<header class="bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-sm fixed top-0 w-full border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm z-50">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1280px] mx-auto border-b border-amber-900/10">
+<div class="font-serif italic font-bold text-xl text-amber-700 dark:text-amber-500">Monograph</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200 px-3 py-1" href="#">Index</a>
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200 px-3 py-1" href="#">Essays</a>
+<a class="font-serif tracking-tight text-amber-700 dark:text-amber-400 border-b-2 border-amber-600 pb-1 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200 px-3" href="#">Gallery</a>
+<a class="font-serif tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 transition-colors Active: scale-95 duration-200 px-3 py-1" href="#">Archive</a>
+</nav>
+<div class="flex items-center">
+<button class="text-amber-600 dark:text-amber-500 p-2 hover:bg-amber-50/50 dark:hover:bg-stone-800/50 rounded-full transition-colors Active: scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</button>
+</div>
+</div>
+</header>
+</div>
+<div class="book-spine"></div>
+<!-- Left Page: Title & Table of Contents -->
+<div class="page page-left pt-24">
+<div class="mb-16">
+<span class="font-accent-italic text-accent-italic text-primary mb-2 block">Chapter III</span>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-6">Selected Work</h1>
+<div class="w-16 h-px bg-primary opacity-40"></div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="max-w-md">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        A curated collection of digital experiences, architectural prototypes, and exploratory interaction models. These selections represent a synthesis of traditional typographic principles applied to dynamic digital environments.
+                    </p>
+<!-- Elegant Table of Contents -->
+<ul class="space-y-6 relative">
+<div class="absolute left-0 top-2 bottom-2 w-px bg-outline-variant opacity-50"></div>
+<li class="pl-6 relative group cursor-pointer">
+<div class="absolute left-[-3px] top-2.5 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-1 mb-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">01. The Cartographer's Index</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2023</span>
+</div>
+<span class="font-accent-italic text-sm text-outline group-hover:text-on-surface-variant transition-colors">Spatial mapping interface</span>
+</li>
+<li class="pl-6 relative group cursor-pointer">
+<div class="absolute left-[-3px] top-2.5 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-1 mb-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">02. Echo Chamber</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2022</span>
+</div>
+<span class="font-accent-italic text-sm text-outline group-hover:text-on-surface-variant transition-colors">Generative audio visualizer</span>
+</li>
+<li class="pl-6 relative group cursor-pointer">
+<div class="absolute left-[-3px] top-2.5 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-1 mb-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">03. Loom</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2022</span>
+</div>
+<span class="font-accent-italic text-sm text-outline group-hover:text-on-surface-variant transition-colors">Woven data visualization</span>
+</li>
+<li class="pl-6 relative group cursor-pointer">
+<div class="absolute left-[-3px] top-2.5 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-1 mb-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">04. Silica</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2021</span>
+</div>
+<span class="font-accent-italic text-sm text-outline group-hover:text-on-surface-variant transition-colors">Minimalist e-commerce platform</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Page Number -->
+<div class="mt-auto pt-8 flex justify-between items-center text-outline">
+<span class="font-label-caps text-label-caps">Folio</span>
+<span class="font-accent-italic text-accent-italic">42</span>
+</div>
+</div>
+<!-- Right Page: Project Grid -->
+<div class="page page-right pt-24 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full pb-8">
+<!-- Card 1 -->
+<article class="ambient-card rounded-lg flex flex-col h-full">
+<div class="h-40 bg-surface-container-high relative overflow-hidden">
+<img alt="Aerial view of a complex city map highlighting intersecting lines and topographical data in soft muted colors" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="Aerial view of a complex city map highlighting intersecting lines and topographical data in soft muted colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCku3eBJXBw7IAWmb9I6gWmU0DLVBQzpNobYMqyv2Bso7ReX8cK4P24CL7qtQRyb82rX9OCnHE-VSfCMK86djpA0OhOIBXIOCATv009n0KFa_X8L5cD5yy_aCamoSdt9x-D9a9MZLSz4ZUGCUha16nIGxDsRftqN3Y6-HTwtCrtuJV6eglo-yfKa9g3TjQIX_cVn8kETM_RGFIYADkwKYekyuCaVa1mwjRLVsC-sDllypWlMd5flkL16DxVYdgD664uyVA4V9VMlePK"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[24px] leading-tight text-on-surface">The Cartographer's Index</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                            A spatial mapping interface designed to visualize historical trade routes. The UI emphasizes clarity through monochromatic styling and dynamic topography layering.
+                        </p>
+<div class="mt-auto">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">React</span>
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">D3.js</span>
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Mapbox</span>
+</div>
+<div class="flex gap-4 border-t border-outline-variant/30 pt-4">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="open_in_new">open_in_new</span> Live View
+                                </a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="code">code</span> Source
+                                </a>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="ambient-card rounded-lg flex flex-col h-full">
+<div class="h-40 bg-surface-container-high relative overflow-hidden">
+<img alt="Abstract fluid waves and particles in monochromatic sepia tones representing sound frequencies" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="Abstract fluid waves and particles in monochromatic sepia tones representing sound frequencies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mLF8FAWa8i9a_I7PuAmnUy5aXClY5yfnIh3Ez-qqxQBrRgZsOGxIOWhW0O1LWPb4vJ5e-bvQmAJ6oIWuZkhgc_uwtSLyuqtF9Sx1iipEK2ok2FSdEU9YBFfkNwU6bzWCqPFsxBjM-Oc38MxAYx6veiPpcoZ1DIStVYQBkm7CyIJ-Kq7gVd2zao0EwS6TH8wH31KncRkDeqML82b-fptibkv9LDL1fjBIjiGYisI9Pxb1DxxNjzJTTVpxZfZmaoFZ2tVzNPhtKwkR"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[24px] leading-tight text-on-surface">Echo Chamber</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                            A generative audio visualizer that translates ambient room noise into flowing typographic landscapes. Built for a museum installation.
+                        </p>
+<div class="mt-auto">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Three.js</span>
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Web Audio API</span>
+</div>
+<div class="flex gap-4 border-t border-outline-variant/30 pt-4">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="open_in_new">open_in_new</span> Live View
+                                </a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="article">article</span> Case Study
+                                </a>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="ambient-card rounded-lg flex flex-col h-full">
+<div class="h-40 bg-surface-container-high relative overflow-hidden">
+<img alt="Close up macro shot of woven fabric threads interlocking in a complex geometric pattern" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="Close up macro shot of woven fabric threads interlocking in a complex geometric pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0lIBbQJNS2r2BUiSnk7J4xSOk-QDTpc9OC7Uj6KaOxLFIVsuMb5kCCXKEzb2fLlZFdgoIGinaWFCJKsF5o9iXsaiNAz0oB2hPol4VGvitnpf9TK2zwoi2YWnWSwACYF71UGTCiHHdKyajLPzD-rLAU0cD76Q9Svl-Tk__Emxgn8Q1TSuC1qdJu-2tCGHUQCk-r2cVQQgV-6MAwwcZJhgpqsFHl5UcSVI0-MmLYX_4DdkINzJ7daT4JbO5wXikz-naIcvezPl6idtE"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[24px] leading-tight text-on-surface">Loom</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                            An experimental data visualization tool that renders complex datasets as woven textile patterns. Explores the tactile nature of digital information.
+                        </p>
+<div class="mt-auto">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Vue</span>
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Canvas API</span>
+</div>
+<div class="flex gap-4 border-t border-outline-variant/30 pt-4">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="open_in_new">open_in_new</span> Live View
+                                </a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="code">code</span> Source
+                                </a>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="ambient-card rounded-lg flex flex-col h-full">
+<div class="h-40 bg-surface-container-high relative overflow-hidden">
+<img alt="Minimalist still life of a smooth glass orb on a stone plinth with dramatic soft lighting" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="Minimalist still life of a smooth glass orb on a stone plinth with dramatic soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOncWXN93E1gVbqCZj3KDqZarGHxT-Mtp2ZwebHCwyhWSa_bmj7Se5qDO8jxOboAuBoU8czloPDpr5ZY43ix9V41eUp2fBVmjqZxNrwO922XCYbuVCeTNSrAt_nVv4oMyjE6KDVpDQNh7LDdVPHfZM-nBoDUCdMgDKlU7bnZGuszhZ4-E6glUMirDgwoezmHntJpIPjD47ODaWggpdsB5OYDV6CKKQw5lCdY0awUA9mARgqLG0FOReJmcDZ4yM6HxGJgDguZZ3I7l_"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[24px] leading-tight text-on-surface">Silica</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                            A minimalist e-commerce platform designed for artisan ceramicists. Focuses on whitespace, subtle transitions, and high-fidelity typography to elevate product photography.
+                        </p>
+<div class="mt-auto">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Next.js</span>
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Tailwind</span>
+<span class="archival-chip px-2 py-1 rounded text-xs font-accent-italic text-primary">Stripe</span>
+</div>
+<div class="flex gap-4 border-t border-outline-variant/30 pt-4">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="open_in_new">open_in_new</span> Live View
+                                </a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-y-0.5 transition-transform" data-icon="code">code</span> Source
+                                </a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Page Number -->
+<div class="mt-auto pt-4 flex justify-between items-center text-outline">
+<span class="font-accent-italic text-accent-italic">43</span>
+<span class="font-label-caps text-label-caps">Gallery</span>
+</div>
+<!-- Bookmark component hanging from top right -->
+<div class="absolute top-0 right-16 w-8 h-24 bg-primary rounded-b flex items-end justify-center pb-2 shadow-md hover:h-28 transition-all cursor-pointer z-20">
+<span class="material-symbols-outlined text-on-primary text-[20px]" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</div>
+<!-- Footer Overlay -->
+<footer class="bg-stone-50 dark:bg-stone-950 fixed bottom-0 w-full border-t border-stone-200 dark:border-stone-800 z-50">
+<div class="flex justify-between items-center py-4 px-16 max-w-[1280px] mx-auto w-full">
+<div class="font-serif italic text-xs text-stone-500 dark:text-stone-400">© 2024 Digital Monograph. Printed in Bits.</div>
+<div class="flex gap-6">
+<a class="font-serif italic text-xs text-stone-400 dark:text-stone-600 hover:text-amber-600 dark:hover:text-amber-400 transition-opacity duration-300" href="#">Sound On</a>
+<a class="font-serif italic text-xs text-stone-400 dark:text-stone-600 hover:text-amber-600 dark:hover:text-amber-400 transition-opacity duration-300" href="#">Haptic</a>
+<a class="font-serif italic text-xs text-stone-400 dark:text-stone-600 hover:text-amber-600 dark:hover:text-amber-400 transition-opacity duration-300" href="#">Motion High</a>
+</div>
+</div>
+</footer>
+</body></html>

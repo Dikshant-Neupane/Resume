@@ -1,0 +1,77 @@
+# ==========================================
+# 🔒 ENVIRONMENT & SENSITIVE SECRETS
+# ==========================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.env
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.secret
+id_rsa*
+id_ed25519*
+
+# ==========================================
+# 📦 DEPENDENCIES & BUILD ARTIFACTS
+# ==========================================
+node_modules/
+dist/
+dist-ssr/
+build/
+.cache/
+.vite/
+.vercel/
+
+# ==========================================
+# 🪵 LOGS & CRASH DUMPS
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# 🗄️ ARCHIVES & LARGE BACKUPS
+# ==========================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.tmp
+*.temp
+
+# ==========================================
+# 💻 IDE, EDITOR & OS METADATA
+# ==========================================
+.kiro/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini

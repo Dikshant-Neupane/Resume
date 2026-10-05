@@ -388,15 +388,8 @@ export default function App() {
                       </ul>
 
                       {exp.skills && (
-                        <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-[#f0eae1]">
-                          {exp.skills.map((sk) => (
-                            <span
-                              key={sk}
-                              className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[#f4eee4] text-[#6b583f]"
-                            >
-                              {sk}
-                            </span>
-                          ))}
+                        <div className="mt-3 pt-3 border-t border-[#f0eae1] text-[10px] font-semibold uppercase tracking-wider text-[#7f756a]">
+                          {exp.skills.join(' • ')}
                         </div>
                       )}
                     </div>
@@ -466,14 +459,14 @@ export default function App() {
                       }`}
                     >
                       <div>
-                        <div className="flex items-start justify-between gap-2 mb-1.5">
+                        <div className="flex items-start justify-between gap-2 mb-2">
                           <div className="flex items-center gap-2 flex-wrap">
                             <h3 className="text-sm font-bold text-[#1a1714] font-heading">
                               {proj.title}
                             </h3>
                             {proj.featured && (
-                              <span className="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-amber-100 text-amber-900 border border-amber-200">
-                                Featured
+                              <span className="text-[11px] font-medium text-[#c4a57b]">
+                                ★ Featured
                               </span>
                             )}
                           </div>
@@ -489,9 +482,9 @@ export default function App() {
                           )}
                         </div>
 
-                        <span className="inline-block text-[10px] font-semibold text-[#735a36] bg-[#f4eee4] px-2 py-0.5 rounded-md mb-2">
+                        <div className="text-[10px] font-semibold text-[#7f756a] uppercase tracking-wider mb-2">
                           {proj.category}
-                        </span>
+                        </div>
 
                         <p className="text-xs text-[#4e453b] leading-relaxed mb-2.5">
                           {proj.description}
@@ -504,15 +497,8 @@ export default function App() {
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-1 pt-2.5 border-t border-[#f0eae1]">
-                        {proj.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white border border-[#e2dcd2] text-[#4e453b]"
-                          >
-                            {t}
-                          </span>
-                        ))}
+                      <div className="pt-2.5 border-t border-[#f0eae1] text-[10.5px] font-mono text-[#7f756a]">
+                        {proj.tech.join(' • ')}
                       </div>
                     </div>
                   ))}
@@ -542,12 +528,8 @@ export default function App() {
                     <h3 className="text-xs uppercase tracking-wider font-bold text-[#1a1714] font-heading mb-3 pb-1 border-b border-[#f0eae1]">
                       Programming Languages
                     </h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {SKILLS.languages.map((s) => (
-                        <span key={s} className="px-2.5 py-1 rounded-lg bg-white border border-[#e2dcd2] text-xs font-mono text-[#3a342c]">
-                          {s}
-                        </span>
-                      ))}
+                    <div className="text-sm text-[#4e453b] leading-relaxed">
+                      {SKILLS.languages.join(', ')}
                     </div>
                   </div>
 
@@ -555,12 +537,8 @@ export default function App() {
                     <h3 className="text-xs uppercase tracking-wider font-bold text-[#1a1714] font-heading mb-3 pb-1 border-b border-[#f0eae1]">
                       AI & Machine Learning
                     </h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[...SKILLS.data_ml, ...SKILLS.ai].map((s) => (
-                        <span key={s} className="px-2.5 py-1 rounded-lg bg-white border border-[#e2dcd2] text-xs text-[#3a342c]">
-                          {s}
-                        </span>
-                      ))}
+                    <div className="text-sm text-[#4e453b] leading-relaxed">
+                      {[...SKILLS.data_ml, ...SKILLS.ai].join(', ')}
                     </div>
                   </div>
 
@@ -568,12 +546,8 @@ export default function App() {
                     <h3 className="text-xs uppercase tracking-wider font-bold text-[#1a1714] font-heading mb-3 pb-1 border-b border-[#f0eae1]">
                       Scientific Computing & Math
                     </h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[...SKILLS.scientific, ...SKILLS.visualization].map((s) => (
-                        <span key={s} className="px-2.5 py-1 rounded-lg bg-white border border-[#e2dcd2] text-xs text-[#3a342c]">
-                          {s}
-                        </span>
-                      ))}
+                    <div className="text-sm text-[#4e453b] leading-relaxed">
+                      {[...SKILLS.scientific, ...SKILLS.visualization].join(', ')}
                     </div>
                   </div>
 
@@ -581,12 +555,8 @@ export default function App() {
                     <h3 className="text-xs uppercase tracking-wider font-bold text-[#1a1714] font-heading mb-3 pb-1 border-b border-[#f0eae1]">
                       Tools & Developer Environments
                     </h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {SKILLS.tools.map((s) => (
-                        <span key={s} className="px-2.5 py-1 rounded-lg bg-white border border-[#e2dcd2] text-xs font-mono text-[#3a342c]">
-                          {s}
-                        </span>
-                      ))}
+                    <div className="text-sm text-[#4e453b] leading-relaxed">
+                      {SKILLS.tools.join(', ')}
                     </div>
                   </div>
                 </div>
@@ -669,15 +639,8 @@ export default function App() {
                                 {act.platform}
                               </span>
                             </div>
-                            <div className="flex flex-wrap gap-1 mt-2">
-                              {act.tags.map((t) => (
-                                <span
-                                  key={t}
-                                  className="text-[10px] px-1.5 py-0.5 rounded bg-[#f4eee4] text-[#6b583f]"
-                                >
-                                  #{t}
-                                </span>
-                              ))}
+                            <div className="mt-2 text-[10.5px] text-[#7f756a]">
+                              {act.tags.join(' • ')}
                             </div>
                           </div>
                           {act.url && (
